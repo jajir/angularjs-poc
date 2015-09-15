@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.iconable:before {
+	content: "";
+	display: block;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin: -2px 6px 0 0;
+}
+
+.homeIcon:before {
+	background-image: url("home.min.png");
+}
