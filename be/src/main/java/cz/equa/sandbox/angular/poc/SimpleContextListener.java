@@ -10,24 +10,24 @@ import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
 public class SimpleContextListener extends GuiceServletContextListener {
 
-	@Override
-	protected Injector getInjector() {
-		return Guice.createInjector(new ServletModule() {
+    @Override
+    protected Injector getInjector() {
+	return Guice.createInjector(new ServletModule() {
 
-			@Override
-			protected void configureServlets() {
-				super.configureServlets();
-				
-				ResourceConfig resourceConfig = new PackagesResourceConfig(
-						"cz/equa/sandbox/angular/poc/resources");
-				for (Class<?> resource : resourceConfig.getClasses()) {
-					bind(resource);
-				}
+	    @Override
+	    protected void configureServlets() {
+		super.configureServlets();
 
-				serve("*.html").with(SimpleHttpServlet.class);
-				serve("/services/*").with(GuiceContainer.class);
-			}
-		});
-	}
+		ResourceConfig resourceConfig = new PackagesResourceConfig(
+			"cz/equa/sandbox/angular/poc/resources");
+		for (Class<?> resource : resourceConfig.getClasses()) {
+		    bind(resource);
+		}
+
+		serve("*.html").with(SimpleHttpServlet.class);
+		serve("/services/*").with(GuiceContainer.class);
+	    }
+	});
+    }
 
 }
