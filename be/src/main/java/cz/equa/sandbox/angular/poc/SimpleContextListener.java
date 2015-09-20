@@ -24,7 +24,6 @@ public class SimpleContextListener extends GuiceServletContextListener {
 		    bind(resource);
 		}
 
-		serve("*.html").with(SimpleHttpServlet.class);
 		serve("/services/*").with(GuiceContainer.class);
 	    }
 	});
