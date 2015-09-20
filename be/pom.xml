@@ -4,7 +4,7 @@
 	<groupId>cz.equa.sandbox</groupId>
 	<artifactId>be</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>be</name>
 	<description>test project A</description>
@@ -122,6 +122,14 @@
 					</requestLog>
 					<reload>automatic</reload>
 					<scanIntervalSeconds>1</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://www.mydomain.com:1234/mymanager</url>
 				</configuration>
 			</plugin>
 		</plugins>
